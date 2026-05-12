@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+            /** RESPONSIVE **/
+        
+        @media(max-width:840px) {
+            .box2 {
+                flex-direction: column;
+            }
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        /*** NORMAL CSS  **/
+
+        * {
+            padding: 0px;
+            margin: 0px;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: rgb(225, 223, 223);
+        }
+
+        .page {
+            margin: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            ;
+        }
+
+        h1 {
+            font-family: gabriola;
+            font-size: 4em;
+        }
+
+
+        .btn {
+            background: linear-gradient(rgb(116, 176, 116), rgb(97, 192, 195));
+            text-align: center;
+            padding: 15px;
+            color: white;
+            font-family: forte;
+            font-size: 20px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        .box1 {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0px;
+        }
+
+        .box2 {
+            display: flex;
+            margin: 10px 0px;
+            gap: 10px;
+        }
+
+        .searchbox {
+            padding: 10px;
+            font-size: 18px;
+            font-family: cursive;
+            border: 0;
+            width: 300px;
+            border-radius: 20px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+
+        .searchicon {
+            text-align: center;
+            font-size: 20px;
+            height: 10px;
+            width: 25px;
+            margin: 0px 0px 15px 5px;
+        }
+
+        .searchbox:focus {
+            outline: none;
+            border: 0;
+        }
+
+        .fil {
+            border-radius: 20px;
+            padding: 10px;
+            width: 100px;
+            font-size: 15px;
+        }
+
+        .filter {
+            margin-left: auto;
+        }
+
+        table,
+        td,
+        th {
+            padding: 10px;
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 10px;
+        }
+
+        thead td {
+            background: linear-gradient(rgb(179, 108, 250), rgb(236, 103, 114));
+            font-weight: bold;
+            font-size: 25px;
+            padding: 20px;
+            color: white;
+            font-family: candara;
+            text-align: center;
+        }
+
+        tr td {
+            padding: 20px;
+        }
+
+        .filterclear {
+            PADDING: 10PX;
+            background-color: rgb(68, 117, 117);
+            color: white;
+            border: #ccc;
+            border-radius: 10px;
+            ;
+        }
+
+
+
+        .table:nth-child(odd) {
+            background-color: rgb(220, 218, 218);
+        }
+
+        .inp {
+            padding: 10px;
+        }
+
+        .inpbtn {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            width: 80px;
+            border: 0;
+            border-radius: 20px;
+        }
+
+        .form {
+            display: none;
+        }
+
+        .apply {
+            padding: 10px;
+            color: white;
+            margin: 5px;
+            background-color: rgb(33, 104, 104);
+            border-radius: 10px;
+            border: 0;
+        }
+
+        @media(max-width:840px) {
+            h1{
+                font-size:3em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <h1>Employee Management System</h1>
+        <div class="box1">
+            <button class="add btn" onclick="show()">Add Employee</button>
+            <div class="form">
+                <input type="text" class="inp" placeholder="Firstname" name="fname">
+                <input type="text" class="inp" placeholder="Lastname" name="lname">
+                <input type="number" class="inp" placeholder="Mobile" name="mob">
+                <input type="email" class="inp" placeholder="Mail" name="mail">
+                <input type="date" class="inp" name="doj">
+                <input type="number" class="inp" placeholder="Salary" name="salary">
+                <button onclick="ad()" class="inpbtn">Add</button>
+            </div>
+            <button class="clear btn" onclick="clearall()">Clear all</button>
+        </div>
+        <div class="box2">
+            <div class="search">
+                <div class="searchicon">🔍</div>
+                <input type="text" class="searchbox" oninput="filter()" placeholder="Search by name">
+            </div>
+            <div class="filter">Filter:
+                <input type="number" class="filtersalary fil" oninput="filter()" placeholder="Minimum salary">
+                <input type="date" class="filterdate fil" oninput="filter()">
+                <button class="filterclear" onclick="filclear()">Clear </button>
+            </div>
+        </div>
+        <div class="table-wrap">
+            <table class="table">
+
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    form = document.querySelector('.form')
+    adbtn = document.querySelector('.inpbtn');
+
+    table = document.querySelector('.table')
+
+    function dowork(obj) {
+        table.innerHTML = '<thead><tr><td>Emp Id</td><td>NAME</td><td>LASTNAME</td><td>MOBILE</td><td>MAIL</td><td>DATE OF JOINING</td><td>SALARY</td><td>OPTIONS</td></tr></thead >'
+        console.log(obj);
+        for (i in obj) {
+            row = document.createElement('tr');
+            col = document.createElement('td');
+            col.textContent = i
+            row.appendChild(col)
+            for (j of obj[i]) {
+                col = document.createElement('td');
+                col.textContent = j
+                row.appendChild(col)
+            }
+            col = document.createElement('td');
+            a = document.createElement('button')
+            a.className = 'apply'
+            a.textContent = "Delete"
+            a.onclick = function () { dele(i, this) }
+            col.appendChild(a)
+            b = document.createElement('button')
+            b.textContent = "Edit"
+            b.className = 'apply'
+            b.onclick = function () { edit(i, this) }
+            col.appendChild(b)
+            row.appendChild(col)
+            table.appendChild(row)
+        }
+    }
+
+    function load() {
+        fetch('/load', { cache: 'no-store' }).then(data => data.json()   // here cache is imp see
+        ).then((obj) => {
+            dowork(obj)
+        })
+    }
+
+
+    adform = document.querySelector('.form');
+    btns = document.querySelectorAll('.btn');
+
+
+    function show() {
+        adform.style.display = 'block';
+        btns.forEach(x => { x.style.display = 'none' })
+    }
+
+    function unshow() {
+        adform.style.display = 'none';
+        btns.forEach(x => { x.style.display = 'block' })
+    }
+
+    function dele(id, th) {
+        row = th.parentNode.parentNode
+        table.removeChild(row);
+        fetch('/delete', {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ eid: id })
+        }
+        ).then(((x) => console.log(x)))
+    }
+
+    function edit(id, th) {
+        row = th.parentNode.parentNode
+        rc = row.children
+        fch = form.children
+        empdata = {}
+        for (let i = 0; i < 6; i++) {
+            fch[i].value = rc[i + 1].textContent
+            empdata[fch[i].name] = rc[i + 1].textContent
+        }
+
+        show()
+        adbtn.textContent = 'Update';
+        adbtn.onclick = function () { update(id, empdata, th) };
+    }
+
+    function ad() {
+        newdata = {}
+        inps = document.querySelectorAll('.inp')
+        inps.forEach((inp) => {
+            newdata[inp.name] = inp.value
+            inp.value = ''
+        })
+        fetch('/add', { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(newdata) }).then((x) => {
+            x.json();
+            load()
+            unshow()
+        })
+
+    }
+
+    function update(id, olddata, th) {
+        newdata = {}
+        toup = { Eid: id }
+        const colIndex = {
+            fname: 1,
+            lname: 2,
+            mob: 3,
+            mail: 4,
+            doj: 5,
+            salary: 6
+        };
+        row = th.parentNode.parentNode
+        Array.from(form.children).forEach((inp) => {
+            if (!inp.name) return;
+            newdata[inp.name] = inp.value
+        })
+
+        for (let i in newdata) {
+            if (olddata[i] != newdata[i]) {
+                let index = colIndex[i];
+                if (index === undefined) return; // 🔧 CHANGED (safety)
+                toup[i] = newdata[i]
+            }
+        }
+
+        // 🔧 CHANGED — update UI ONLY after backend success
+        fetch('/update', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(toup)
+        }).then(() => {
+
+            for (let i in toup) {
+                if (i === "Eid") continue;
+
+                let index = colIndex[i];
+                row.children[index].textContent = toup[i];
+            }
+
+            unshow();
+            adbtn.onclick = function () { ad(); };
+            adbtn.textContent = 'Add';
+
+        })
+    }
+
+    load()
+
+    function filter() {
+        filtersal = document.querySelector('.filtersalary').value
+        filterdate = document.querySelector('.filterdate').value
+        box = document.querySelector('.searchbox');
+        name = box.value
+        if (!name && !filtersal && !filterdate) {
+            return load()
+        }
+        fetch('/find', {
+            method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(
+                { 'name': name, 'salary': filtersal, 'doj': filterdate }), cache: 'no-store'
+        }).then(data => data.json()   // here cache is imp see
+        ).then((obj) => {
+            dowork(obj)
+        })
+    }
+
+    function filclear() {
+        document.querySelector('.filtersalary').value = '';
+        document.querySelector('.filterdate').value = '';
+        document.querySelector('.searchbox').value = '';
+        load()
+    }
+
+    function clearall() {
+        if (!window.confirm("Are you sure you want to delete ALL employees? This cannot be undone!")) {
+            return; // stop if user cancels
+        }
+        fetch('/clearall').then(x => x.json).then((x) => {
+            console.log(x);
+            load();
+        })
+    }
+
+</script>
+
+</html>
