@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TalentStream | Employee Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#f9eef4",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#6063ee",
+                      "background": "#fff7fa",
+                      "on-tertiary-fixed-variant": "#8c0053",
+                      "secondary-fixed-dim": "#ffb690",
+                      "on-secondary-container": "#5c2400",
+                      "surface-container-high": "#f0e5eb",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container": "#f6ebf1",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#eae0e6",
+                      "tertiary": "#b10e6b",
+                      "secondary-fixed": "#ffdbca",
+                      "secondary": "#9d4300",
+                      "primary-fixed": "#e1e0ff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#07006c",
+                      "tertiary-container": "#d23284",
+                      "surface-container-low": "#fcf1f7",
+                      "secondary-container": "#fd761a",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#c7c4d7",
+                      "outline": "#767586",
+                      "inverse-primary": "#c0c1ff",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#eae0e6",
+                      "surface-dim": "#e2d7dd",
+                      "surface-bright": "#fff7fa",
+                      "on-background": "#1f1a1e",
+                      "on-secondary-fixed": "#341100",
+                      "on-secondary-fixed-variant": "#783200",
+                      "surface-tint": "#494bd6",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "on-tertiary-fixed": "#3e0022",
+                      "on-primary-container": "#fffbff",
+                      "tertiary-fixed-dim": "#ffb0cd",
+                      "on-surface-variant": "#464554",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "surface": "#fff7fa",
+                      "primary": "#4648d4",
+                      "on-surface": "#1f1a1e",
+                      "inverse-surface": "#342f33",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#ffd9e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "lg": "48px",
+                      "xl": "80px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "sm": "12px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fff7fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .tinted-shadow { box-shadow: 0 10px 25px -5px rgba(73, 75, 214, 0.15); }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-md">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-end md:items-center gap-md mb-xl">
+<div class="space-y-xs">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-lg" data-icon="group">group</span>
+<span class="text-headline-md font-headline-md font-extrabold text-primary">TalentStream</span>
+</div>
+<h1 class="text-display-lg font-display-lg text-on-surface">Employee Directory</h1>
+</div>
+<button class="bg-secondary-container text-on-secondary-container hover:scale-95 transition-transform duration-150 px-lg py-md rounded-xl flex items-center gap-sm font-label-lg text-label-lg shadow-lg">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                Add Employee
+            </button>
+</header>
+<!-- Search & Filter Area -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md items-center">
+<div class="md:col-span-8 relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-xl pr-md py-md bg-surface-container-lowest border-2 border-outline-variant rounded-xl focus:border-primary focus:ring-0 transition-all outline-none text-body-md font-body-md" placeholder="Search by name, role or department..." type="text"/>
+</div>
+<div class="md:col-span-4 flex gap-sm">
+<button class="flex-1 bg-surface-container-low text-on-surface-variant border border-outline-variant py-md rounded-xl flex justify-center items-center gap-sm hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+<span class="font-label-lg text-label-lg">Filters</span>
+</button>
+<button class="flex-1 bg-tertiary-container text-on-tertiary-container py-md rounded-xl flex justify-center items-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="export_notes">export_notes</span>
+<span class="font-label-lg text-label-lg">Export</span>
+</button>
+</div>
+</section>
+<!-- Data Table Card -->
+<div class="bg-surface-container-lowest rounded-xl tinted-shadow overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-md py-md text-left text-label-sm font-label-sm text-outline uppercase tracking-wider">Employee</th>
+<th class="px-md py-md text-left text-label-sm font-label-sm text-outline uppercase tracking-wider">Role</th>
+<th class="px-md py-md text-left text-label-sm font-label-sm text-outline uppercase tracking-wider">Department</th>
+<th class="px-md py-md text-left text-label-sm font-label-sm text-outline uppercase tracking-wider">Status</th>
+<th class="px-md py-md text-right text-label-sm font-label-sm text-outline uppercase tracking-wider">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md">
+<div class="flex items-center gap-sm">
+<img alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional headshot of a smiling woman with glasses, set against a soft, bright studio background with warm lighting. The aesthetic is modern and corporate-friendly, featuring clear focus and a clean, light-mode color palette that emphasizes approachable professionalism and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCTFXpf7RkqUtDyVtfNkRrLvUMZNxPRAcXXqDOIYE069O69jqhxlZ93RLp39iCue73jGmYejlVggIXJlrnNoI99VFmeonh2X-0vT9oFC1-UEdSgvGz1hqNatAUq7hhxgIcyQGohirZYBfRDPYim6a_KJyzMg8KvfXmpjhgpfph6SvLg70mSU1agNGD5cnmI4-yyNFAhbhhuMYHI-hJd2-ZhK-DWHjMio7ZwptJ-OE1p2d7Ee8QOBxQVmgkLIZlEfR2cdo4M4udVNBH"/>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Sarah Jenkins</div>
+<div class="text-label-sm text-outline">sarah.j@talentstream.io</div>
+</div>
+</div>
+</td>
+<td class="px-md py-md text-body-md font-body-md text-on-surface-variant">Senior Product Designer</td>
+<td class="px-md py-md">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-sm py-xs rounded-lg text-label-sm font-label-sm">Engineering</span>
+</td>
+<td class="px-md py-md">
+<span class="bg-green-100 text-green-700 px-sm py-xs rounded-full text-label-sm font-label-sm flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Active
+                                </span>
+</td>
+<td class="px-md py-md text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md">
+<div class="flex items-center gap-sm">
+<img alt="Marcus Chen" class="w-10 h-10 rounded-full object-cover border-2 border-tertiary-container" data-alt="A portrait of a confident young man in a modern office environment, blurred background with natural window light. The style is crisp and high-contrast, fitting a contemporary workspace aesthetic with subtle indigo and pink tones in the shadows to maintain the energetic UI theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIEPJ6IiSEeZHMz6TUyEWLzF7HgzM8N_3qcpMGGvjqcIGh3xwTQtqI4RyI0MHWqLv77svsyYQ52O91t3N_GzNb0OHOJP2QUc9aCmdCHegzDUQuErw2vhbPXhZAXMSs5VEB8tu3OOrEadt519hUqBb94-0xWlnmyyThQrHV7ELHrYes3oQMC3CpnwKDc-WckLbdDqzJYWMIncpvKOXwRmD7mkJLG0iRGXJ6HkTBxhQsQbGszNdvQyqPEcuXfad2Gio_iNuFMJ1Ae-7n"/>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Marcus Chen</div>
+<div class="text-label-sm text-outline">m.chen@talentstream.io</div>
+</div>
+</div>
+</td>
+<td class="px-md py-md text-body-md font-body-md text-on-surface-variant">Lead Frontend Dev</td>
+<td class="px-md py-md">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-sm py-xs rounded-lg text-label-sm font-label-sm">Technology</span>
+</td>
+<td class="px-md py-md">
+<span class="bg-orange-100 text-orange-700 px-sm py-xs rounded-full text-label-sm font-label-sm flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span> On Leave
+                                </span>
+</td>
+<td class="px-md py-md text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-md py-md">
+<div class="flex items-center gap-sm">
+<img alt="Elena Rodriguez" class="w-10 h-10 rounded-full object-cover border-2 border-secondary-container" data-alt="A focused professional woman working in a bright, minimalist shared workspace. Soft morning light enters from the side, creating a warm and vibrant atmosphere. The image is high-definition, reflecting a high-contrast modern style with soft minimalist architectural elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8hboStB9CXjbrv6sSnM9mWJoNx_Z_UtsDcJ5KaQvL5kMycv0b1u9xB0m6KZ9B7DiquAAT4b61e2IIy7Q8n11ZRHC5rhjayBrQdU2fjPlPwNn-mWw4vecDsc4RD0u7dyQPd0Et4ZUk5NDb6pJiFj7y6KpiFxgDVw8adQgDG_opDuHNxYtHSVU4d46hGTndLqX8jLfacPjUOI3BzsPg1bS20t_bp-9snmXp7zGDq9EwezVL9Tq0-YkpeDqtz8geDJMd95mCGn1cTz5E"/>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Elena Rodriguez</div>
+<div class="text-label-sm text-outline">elena.r@talentstream.io</div>
+</div>
+</div>
+</td>
+<td class="px-md py-md text-body-md font-body-md text-on-surface-variant">HR Manager</td>
+<td class="px-md py-md">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-sm py-xs rounded-lg text-label-sm font-label-sm">Operations</span>
+</td>
+<td class="px-md py-md">
+<span class="bg-green-100 text-green-700 px-sm py-xs rounded-full text-label-sm font-label-sm flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Active
+                                </span>
+</td>
+<td class="px-md py-md text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-md bg-surface-container-low flex justify-between items-center">
+<span class="text-label-sm text-outline">Showing 3 of 124 employees</span>
+<div class="flex gap-xs">
+<button class="p-xs rounded hover:bg-surface-variant text-outline transition-colors"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<button class="p-xs rounded hover:bg-surface-variant text-outline transition-colors"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Summary Cards Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md pt-lg">
+<!-- Card 1: Indigo -->
+<div class="bg-primary-container p-md rounded-xl tinted-shadow text-on-primary flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="font-label-lg text-label-lg opacity-90 uppercase tracking-wider">Hiring Velocity</span>
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="text-display-lg font-display-lg">+12%</span>
+<span class="text-label-sm font-label-sm bg-white/20 px-sm py-xs rounded-full">Last 30 Days</span>
+</div>
+</div>
+<!-- Card 2: Pink -->
+<div class="bg-tertiary-container p-md rounded-xl tinted-shadow text-on-tertiary flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="font-label-lg text-label-lg opacity-90 uppercase tracking-wider">Open Positions</span>
+<span class="material-symbols-outlined" data-icon="work_outline">work_outline</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="text-display-lg font-display-lg">08</span>
+<span class="text-label-sm font-label-sm bg-white/20 px-sm py-xs rounded-full">Active Recruits</span>
+</div>
+</div>
+<!-- Card 3: Orange -->
+<div class="bg-secondary-container p-md rounded-xl tinted-shadow text-on-secondary-container flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="font-label-lg text-label-lg opacity-90 uppercase tracking-wider">Urgent Alerts</span>
+<span class="material-symbols-outlined" data-icon="error_outline" style="font-variation-settings: 'FILL' 1;">error_outline</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="text-display-lg font-display-lg">03</span>
+<span class="text-label-sm font-label-sm bg-white/20 px-sm py-xs rounded-full">Require Action</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="pt-xl pb-md border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex items-center gap-sm">
+<span class="text-label-lg font-label-lg font-bold text-secondary">TalentStream</span>
+<span class="text-label-sm text-outline">© 2024 TalentStream HR Systems. All rights reserved.</span>
+</div>
+<nav class="flex gap-md">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</nav>
+</footer>
+</main>
+</body></html>
